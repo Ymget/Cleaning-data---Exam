@@ -13,7 +13,4 @@ x <- function() {
   stdcolumns <- select(mergedsamples,c(columnnamesstd),562:564)
   finaltable <- merge(meancolumns, stdcolumns, by = c("ID","activity","subject"))
   finaltable$activity <- ordered(finaltable$activity, c(0,1,2,3,4,5,6), labels=c("NA","WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING"))
-  finaltable$ID <- NULL
-  meltedfinaltable <- melt(finaltable,c("activity","subject"))
-  castmean <- cast(meltedfinaltable, activity+subject~variable, mean)
 }
